@@ -8,12 +8,11 @@ import java.lang.annotation.Target;
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.kafka.annotation.KafkaListener;
 
-
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 @KafkaListener
 public @interface StrConsumerCustomListener {
-    
+
     @AliasFor(annotation = KafkaListener.class, attribute = "topics")
     String[] topics() default "str-topic";
 
@@ -22,4 +21,7 @@ public @interface StrConsumerCustomListener {
 
     @AliasFor(annotation = KafkaListener.class, attribute = "groupId")
     String groupId() default "";
+
+    @AliasFor(annotation = KafkaListener.class, attribute = "errorHandler")
+    String errorHandler() default "errorCustomHandler";
 }
