@@ -25,9 +25,7 @@ public class KafkaAdminConfig {
 
     @Bean
     public KafkaAdmin.NewTopics topics() {
-        System.out.println("BASALO");
         return new KafkaAdmin.NewTopics(
-                TopicBuilder.name("str-topic").partitions(2).replicas(1).build()
-        );
+                TopicBuilder.name("str-topic").partitions(2).replicas(1).build());
     }
 }
